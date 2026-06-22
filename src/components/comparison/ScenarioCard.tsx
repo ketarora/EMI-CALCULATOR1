@@ -95,15 +95,15 @@ export function ScenarioCard({
       <dl className="mt-5 space-y-1.5 border-t border-line pt-4 text-sm">
         <div className="flex justify-between">
           <dt className="text-muted">Monthly EMI</dt>
-          <dd className="font-figures font-semibold text-accent-strong">{formatINR(scenario.emi)}</dd>
+          <dd className="font-figures font-bold text-accent-strong">{formatINR(scenario.emi)}</dd>
         </div>
         <div className="flex justify-between">
           <dt className="text-muted">Total interest</dt>
-          <dd className="font-figures text-ink">{formatINR(scenario.totalInterest)}</dd>
+          <dd className="font-figures font-bold text-ink">{formatINR(scenario.totalInterest)}</dd>
         </div>
         <div className="flex justify-between">
           <dt className="text-muted">Total payable</dt>
-          <dd className={`font-figures font-semibold ${scenario.isBest ? "text-positive" : "text-ink"}`}>
+          <dd className="font-figures font-bold text-ink">
             {formatINR(scenario.totalPayable)}
           </dd>
         </div>

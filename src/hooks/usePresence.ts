@@ -11,6 +11,16 @@ import {
 import { useBroadcastChannel } from "./useBroadcastChannel";
 import { pruneStale, removePeer, upsertPeer, computeLeaderTabId } from "@/lib/sync/peers";
 
+function getSessionJoinedAt() {
+  if (typeof window === "undefined") return Date.now();
+  let joined = sessionStorage.getItem("tenure_joined_at");
+  if (!joined) {
+    joined = Date.now().toString();
+    sessionStorage.setItem("tenure_joined_at", joined);
+  }
+  return parseInt(joined, 10);
+}
+
 /**
  * Tracks who else is in the workspace and whether *this* tab is the
  * leader. Fully self-contained — it owns its own BroadcastChannel and
@@ -25,7 +35,12 @@ import { pruneStale, removePeer, upsertPeer, computeLeaderTabId } from "@/lib/sy
  */
 export function usePresence(tabId: string | null): PresenceSnapshot {
   const [peers, setPeers] = useState<Map<string, PeerInfo>>(() => new Map());
-  const joinedAtRef = useRef<number>(Date.now());
+  const joinedAtRef = useRef<number>(0);
+  
+  // Initialize lazily to avoid SSR hydration mismatch or errors
+  if (joinedAtRef.current === 0) {
+    joinedAtRef.current = getSessionJoinedAt();
+  }
 
   const handleMessage = (message: PresenceMessage) => {
     if (message.type === "HEARTBEAT") {

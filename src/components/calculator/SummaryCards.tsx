@@ -23,7 +23,7 @@ export function SummaryCards({ totals, principal }: { totals: LoanTotals; princi
 
       <div className="mt-5">
         <div className="mb-2 flex items-center justify-between text-xs text-muted">
-          <span>Principal vs Interest</span>
+          <span className="font-bold">Principal vs Interest</span>
           <span className="font-figures">
             {formatPercent(totals.principalSharePct)} / {formatPercent(totals.interestSharePct)}
           </span>

@@ -100,7 +100,7 @@ export function SliderField({
   return (
     <div className="space-y-2">
       <div className="flex items-baseline justify-between gap-3">
-        <label htmlFor={id} className="text-sm font-medium text-ink">
+        <label htmlFor={id} className="text-sm font-medium text-[#626875]">
           {label}
         </label>
         <div className="flex items-center gap-1 rounded-sm border border-line bg-raised px-2 py-1">
@@ -123,7 +123,7 @@ export function SliderField({
               if (event.key === "Enter") (event.target as HTMLInputElement).blur();
             }}
             onChange={(event) => handleDraftChange(event.target.value)}
-            className="w-24 bg-transparent text-right font-figures text-sm text-ink outline-none"
+            className="w-24 bg-transparent text-right font-figures text-sm font-bold text-ink outline-none"
             aria-label={`${label} value`}
           />
           {unitSuffix && <span className="font-figures text-sm text-muted">{unitSuffix}</span>}

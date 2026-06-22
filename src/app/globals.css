@@ -135,8 +135,8 @@ input[type="range"].ledger-range::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: rgb(var(--c-surface));
-  border: 3px solid rgb(var(--c-accent));
+  background: rgb(var(--c-accent));
+  border: 3px solid rgb(var(--c-surface));
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
   margin-top: 0;
   cursor: grab;
@@ -149,8 +149,8 @@ input[type="range"].ledger-range::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: rgb(var(--c-surface));
-  border: 3px solid rgb(var(--c-accent));
+  background: rgb(var(--c-accent));
+  border: 3px solid rgb(var(--c-surface));
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
   cursor: grab;
 }

@@ -27,14 +27,14 @@ export function buildScenario(id: string, label: string, inputs: CalculatorInput
 export function buildStarterScenarioPair(inputs: CalculatorInputs, generateId: () => string): [Scenario, Scenario] {
   const shorter: Scenario = {
     id: generateId(),
-    label: "Scenario A",
+    label: "Conservative",
     amount: inputs.amount,
     rate: inputs.rate,
     tenure: clamp(inputs.tenure - 12, LIMITS.tenure.min, LIMITS.tenure.max),
   };
   const longer: Scenario = {
     id: generateId(),
-    label: "Scenario B",
+    label: "Aggressive",
     amount: inputs.amount,
     rate: inputs.rate,
     tenure: clamp(inputs.tenure + 12, LIMITS.tenure.min, LIMITS.tenure.max),

@@ -21,8 +21,8 @@ export function SegmentedControl<T extends string>({
 }) {
   const containerClasses = {
     default: "rounded-full border border-line bg-seg-bg p-1",
-    workspace: "rounded-[32px] border border-line bg-surface shadow-ledger p-1",
-    table: "rounded-xl border border-line bg-seg-bg p-1",
+    workspace: "rounded-[12px] border border-line bg-surface shadow-ledger p-1",
+    table: "rounded-[24px] border border-line bg-seg-bg p-1",
   }[variant];
 
   return (
@@ -43,8 +43,8 @@ export function SegmentedControl<T extends string>({
         
         const shapeClasses = {
           default: "rounded-full",
-          workspace: "rounded-[28px]",
-          table: "rounded-lg",
+          workspace: "rounded-[10px]",
+          table: "rounded-[20px]",
         }[variant];
 
         return (
@@ -53,7 +53,7 @@ export function SegmentedControl<T extends string>({
             role="tab"
             aria-selected={active}
             onClick={() => onChange(option.value)}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition-colors ${shapeClasses} ${
+            className={`inline-flex items-center gap-1.5 px-3 ${variant === "table" ? "py-1" : "py-1.5"} text-sm font-medium transition-colors ${shapeClasses} ${
               active ? activeClasses : inactiveClasses
             }`}
           >

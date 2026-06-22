@@ -52,7 +52,12 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   // would otherwise trip a hydration-mismatch warning.
   const [tabId, setTabId] = useState<string | null>(null);
   useEffect(() => {
-    setTabId(createId());
+    let id = sessionStorage.getItem("tenure_tab_id");
+    if (!id) {
+      id = createId();
+      sessionStorage.setItem("tenure_tab_id", id);
+    }
+    setTabId(id);
   }, []);
 
   const presence = usePresence(tabId);

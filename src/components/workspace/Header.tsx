@@ -23,11 +23,15 @@ export function Header({
     <header className="sticky top-0 z-50 border-b border-line bg-surface">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-accent font-display text-sm font-bold text-white">
-            T
+          <span className="flex h-10 w-10 items-center justify-center rounded-[16px] bg-accent text-white shadow-sm">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="4 20 20 20" />
+              <polyline points="4 20 4 4" />
+              <polyline points="8 15 12 11 16 15 20 9" />
+            </svg>
           </span>
-          <div>
-            <div className="font-display text-base font-semibold leading-tight text-ink">Tenure</div>
+          <div className="flex flex-col gap-1">
+            <div className="font-display text-base font-semibold leading-tight text-ink">EMI Workspace</div>
             <div className="text-[11px] leading-tight text-muted">Loan calculator · synced across tabs</div>
           </div>
         </div>

@@ -46,9 +46,9 @@ export function PrepaymentPlanner({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div>
           <div className="rounded-md border border-line bg-accent/5 p-4">
-            <div className="mb-3 text-sm font-medium text-ink">Add a one-time prepayment</div>
-            <div className="flex flex-wrap items-end gap-3">
-              <label className="flex flex-col gap-1 text-xs text-muted">
+            <div className="mb-3 text-sm font-medium text-[#626875]">Add a one-time prepayment</div>
+            <div className="flex flex-wrap items-end gap-3 w-full">
+              <label className="flex flex-1 flex-col gap-1 text-xs text-muted">
                 Month
                 <input
                   type="number"
@@ -56,17 +56,17 @@ export function PrepaymentPlanner({
                   max={currentTenure}
                   value={month}
                   onChange={(event) => setMonth(event.target.value)}
-                  className="w-24 rounded-sm border border-line bg-surface px-2 py-1.5 font-figures text-sm text-ink outline-none focus-visible:border-accent"
+                  className="w-full h-10 rounded-sm border border-line bg-surface px-2 py-1.5 font-figures text-sm text-ink outline-none focus-visible:border-accent"
                 />
               </label>
-              <label className="flex flex-col gap-1 text-xs text-muted">
+              <label className="flex flex-1 flex-col gap-1 text-xs text-muted">
                 Amount (₹)
                 <input
                   type="number"
                   min={1}
                   value={amount}
                   onChange={(event) => setAmount(event.target.value)}
-                  className="w-32 rounded-sm border border-line bg-surface px-2 py-1.5 font-figures text-sm text-ink outline-none focus-visible:border-accent"
+                  className="w-full h-10 rounded-sm border border-line bg-surface px-2 py-1.5 font-figures text-sm text-ink outline-none focus-visible:border-accent"
                 />
               </label>
               <Button variant="primary" onClick={handleAdd}>
@@ -112,17 +112,17 @@ export function PrepaymentPlanner({
           </div>
         </div>
 
-        <div className="rounded-md border border-line bg-accent/5 p-4">
+        <div className="rounded-md border border-positive/20 bg-gradient-to-br from-positive/10 to-transparent p-4">
           <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">Prepayment Impact</div>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted">Interest Saved</span>
-              <span className="font-figures text-lg font-semibold text-positive">{formatINR(impact.interestSaved)}</span>
+              <span className="font-figures text-lg font-bold text-positive">{formatINR(impact.interestSaved)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted">Tenure Reduced By</span>
               <span
-                className={`font-figures text-lg font-semibold ${impact.tenureReducedBy > 0 ? "text-positive" : "text-muted"}`}
+                className={`font-figures text-lg font-bold ${impact.tenureReducedBy > 0 ? "text-positive" : "text-muted"}`}
               >
                 {impact.tenureReducedBy > 0 ? `${impact.tenureReducedBy} mo` : "—"}
               </span>
@@ -130,19 +130,19 @@ export function PrepaymentPlanner({
             <div className="grid grid-cols-2 gap-3 border-t border-line pt-3 text-sm">
               <div>
                 <div className="text-xs text-muted">Original Tenure</div>
-                <div className="font-figures font-medium text-accent-strong">{formatTenureLabel(impact.originalTenure)}</div>
+                <div className="font-figures font-bold text-ink">{formatTenureLabel(impact.originalTenure)}</div>
               </div>
               <div>
                 <div className="text-xs text-muted">New Tenure</div>
-                <div className="font-figures font-medium text-accent-strong">{formatTenureLabel(impact.newTenure)}</div>
+                <div className="font-figures font-bold text-accent-strong">{formatTenureLabel(impact.newTenure)}</div>
               </div>
               <div>
                 <div className="text-xs text-muted">Original Interest</div>
-                <div className="font-figures font-medium text-accent-strong">{formatINR(impact.originalInterest)}</div>
+                <div className="font-figures font-bold text-ink">{formatINR(impact.originalInterest)}</div>
               </div>
               <div>
                 <div className="text-xs text-muted">New Interest</div>
-                <div className="font-figures font-medium text-accent-strong">{formatINR(impact.newInterest)}</div>
+                <div className="font-figures font-bold text-accent-strong">{formatINR(impact.newInterest)}</div>
               </div>
             </div>
           </div>
